@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from "react";
+import { Box, Heading, Container } from "@chakra-ui/react";
+import TopicInput from "./components/TopicInput";
+import ArticleList from "./components/ArticleList";
 
 function App() {
+  const [articles, setArticles] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxW="container.md" p={4}>
+      <Box textAlign="center" mb={8}>
+        <Heading>Medium Article Scraper</Heading>
+      </Box>
+      <TopicInput setArticles={setArticles} />
+      <ArticleList articles={articles} />
+    </Container>
   );
 }
 
