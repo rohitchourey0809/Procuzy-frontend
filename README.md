@@ -1,3 +1,5 @@
+# Procuzy-Assignment
+
 # Medium Article Scraper
 
 ## Description
@@ -10,6 +12,10 @@ Medium Article Scraper is a web application that scrapes articles from Medium ba
 - Display article titles, authors, publication dates, and URLs
 - Smooth, animated transitions for the article list
 - Simple and intuitive user interface
+
+## Demo
+![image](https://github.com/rohitchourey0809/Procuzy-Assignment/assets/97465195/bdc9575a-8a74-4cc6-aed5-b03287dfbe6b)
+
 
 ## Table of Contents
 
@@ -41,14 +47,14 @@ Medium Article Scraper is a web application that scrapes articles from Medium ba
 
 4. Start the backend server:
     ```bash
-    node index.js
+    npm start
     ```
 
 ### Frontend
 
-1. Navigate to the `client` directory:
+1. Navigate to the `Frontend` directory:
     ```bash
-    cd client
+    cd Frontend
     ```
 
 2. Install frontend dependencies:
@@ -158,4 +164,19 @@ Contributions are welcome! Please follow these steps:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+# Backend Git Hub Repo
+
+```
+https://github.com/rohitchourey0809/Procuzy-Backend
+
+```
+
+# Frontend Git Hub Repo
+
+```
+https://github.com/rohitchourey0809/Procuzy-frontend
+
+```
 

@@ -25,6 +25,7 @@ function TopicInput({ setArticles }) {
     setLoading(true);
     try {
       const response = await axios.get(`${API}medium/${topic}`);
+      console.log("response.data", response.data);
       setArticles(response.data);
     } catch (error) {
       setError("Failed to fetch articles");

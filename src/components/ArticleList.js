@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 const MotionBox = motion(Box);
 
 function ArticleList({ articles }) {
+  console.log("articles", articles);
   return (
     <VStack spacing={4} align="stretch">
       {articles.map((article, index) => (
@@ -20,7 +21,7 @@ function ArticleList({ articles }) {
         >
           <Text fontSize="xl">{article.title}</Text>
           <Text mt={2}>
-            By {article.author || "Unknown"} on{" "}
+            By {article.author || " "} on{" "}
             {new Date(article.publicationDate).toLocaleDateString()}
           </Text>
           <Link href={article.url} isExternal color="teal.500">
