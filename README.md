@@ -1,71 +1,161 @@
-# Getting Started with Create React App
+# Medium Article Scraper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Medium Article Scraper is a web application that scrapes articles from Medium based on a given topic. It leverages Express.js for the backend, MongoDB for data storage, and React with Chakra UI and Framer Motion for a smooth and visually appealing frontend experience.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Search for Medium articles by topic
+- Display article titles, authors, publication dates, and URLs
+- Smooth, animated transitions for the article list
+- Simple and intuitive user interface
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Table of Contents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Endpoints](#endpoints)
+- [Components](#components)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/rohitchourey0809/Procuzy-frontend.git
+    
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install backend dependencies:
+    ```bash
+    npm install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Set up MongoDB:
+    - Ensure you have MongoDB Atlas or a local MongoDB instance running.
+    - Update the MongoDB URI in `index.js` with your MongoDB connection string.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the backend server:
+    ```bash
+    node index.js
+    ```
 
-### `npm run eject`
+### Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Navigate to the `client` directory:
+    ```bash
+    cd client
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install frontend dependencies:
+    ```bash
+    npm install
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Start the React development server:
+    ```bash
+    npm start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+1. Open your browser and navigate to `http://localhost:3000`.
+2. Enter a topic in the input field and click the "Search" button.
+3. The application will scrape Medium articles based on the provided topic and display them with smooth animations.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Endpoints
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### POST /scrape
 
-### Code Splitting
+Scrape articles from Medium based on the given topic.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Request body:**
+    ```json
+    {
+      "topic": "technology"
+    }
+    ```
 
-### Analyzing the Bundle Size
+- **Response:**
+    ```json
+    [
+      {
+        "title": "Article Title",
+        "author": "Author Name",
+        "publicationDate": "Publication Date",
+        "url": "Article URL"
+      },
+      ...
+    ]
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### GET /medium/topic
 
-### Making a Progressive Web App
+Fetch all scraped articles from the database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Response:**
+    ```
+   [
+    {
+        "title": "Tech Jobs & Internships Released on June 15, 2024 Saturday",
+        "author": "",
+        "publicationDate": "Sat, 15 Jun 2024 05:13:16 GMT",
+        "url": "https://medium.com/@munotesandsolution/tech-jobs-internships-released-on-june-15-2024-saturday-584b427b378d?source=rss------technology-5"
+    },
+    {
+        "title": "Tech Updates for the Week -Top 5",
+        "author": "",
+        "publicationDate": "Sat, 15 Jun 2024 05:10:24 GMT",
+        "url": "https://medium.com/@jaxl-editors/tech-updates-for-the-week-top-5-ffd4465d0a24?source=rss------technology-5"
+    },
+    {
+        "title": "The Future of Search: An Interview with Perplexity AI CEO Aravind Srinivas",
+        "author": "",
+        "publicationDate": "Sat, 15 Jun 2024 05:07:10 GMT",
+        "url": "https://mr-oceanblue.medium.com/the-future-of-search-an-interview-with-perplexity-ai-ceo-aravind-srinivas-ea5ddf98cd31?source=rss------technology-5"
+    },
+    {
+        "title": "The Evolution of Media: \nFrom Traditional to Digital Age",
+        "author": "",
+        "publicationDate": "Sat, 15 Jun 2024 05:07:04 GMT",
+        "url": "https://medium.com/@umairali271/the-evolution-of-media-from-traditional-to-digital-age-20c10702ba2c?source=rss------technology-5"
+    },
+    {
+        "title": "Driving Diversity In Tech: Innovative Approaches For An Inclusive Future",
+        "author": "",
+        "publicationDate": "Sat, 15 Jun 2024 04:59:57 GMT",
+        "url": "https://medium.com/@butlersherrell04/driving-diversity-in-tech-innovative-approaches-for-an-inclusive-future-0d1b39fec946?source=rss------technology-5"
+    }
+]
+    
+    ```
 
-### Advanced Configuration
+## Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### `TopicInput.js`
 
-### Deployment
+Renders an input field for the user to enter a topic and fetch articles.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### `ArticleList.js`
 
-### `npm run build` fails to minify
+Displays a list of articles with smooth animations using Framer Motion and Chakra UI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Procuzy-frontend
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
