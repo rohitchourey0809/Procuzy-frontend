@@ -24,9 +24,7 @@ function TopicInput({ setArticles }) {
     setError("");
     setLoading(true);
     try {
-      const response = await axios.post(`${API}scrape`, {
-        topic,
-      });
+      const response = await axios.get(`${API}medium/${topic}`);
       setArticles(response.data);
     } catch (error) {
       setError("Failed to fetch articles");
